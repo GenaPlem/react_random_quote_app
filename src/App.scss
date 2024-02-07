@@ -1,0 +1,34 @@
+$primary-color: #12130F;
+$secondary-color: #E8E9F3;
+$cta-color: #F03A47;
+
+
+body {
+    background-color: $primary-color;
+    font-size: 1.7rem;
+    color: $primary-color;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quotes-display {
+    min-width: 30rem;
+    min-height: 10rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: $secondary-color;
+
+    &__quote {
+
+    }
+
+    &__author {
+
+    }
+
+    &__ {
+
+    }
+}
