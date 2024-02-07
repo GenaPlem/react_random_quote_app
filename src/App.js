@@ -1,10 +1,9 @@
 import './App.scss';
+import {QuoteDisplay} from "./components/QuoteDisplay";
 
 function App() {
     return (
-        <div className="quotes-display">
-            <p>Some text</p>
-        </div>
+        <QuoteDisplay/>
     );
 }
 
