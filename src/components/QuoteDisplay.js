@@ -1,7 +1,8 @@
 export const QuoteDisplay = () => {
     return (
-        <div className="quotes-display">
-            <p className="quotes-display__quote">Some text</p>
-        </div>
+        <>
+            <p className="quotes-display__quote" id="quote-text">Some quote</p>
+            <span className="quotes-display__author" id="author">- Author</span>
+        </>
     )
 }
