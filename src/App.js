@@ -15,13 +15,13 @@ function App() {
             const response = await fetch('https://api.breakingbadquotes.xyz/v1/quotes');
             data = await response.json();
             if (data && data.length > 0) {
-                console.log(data)
+
                 setQuote(data[0]);
             }
         } catch (error) {
             console.error("Error to fetch data:", error);
         }
-        return data
+        return data[0]
     }
 
     useEffect(() => {
