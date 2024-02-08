@@ -2,10 +2,12 @@ $primary-color: #12130F;
 $secondary-color: #E8E9F3;
 $cta-color: #F03A47;
 
+* {
+    box-sizing: border-box;
+}
 
 body {
     background-color: $primary-color;
-    font-size: 1.7rem;
     color: $primary-color;
     min-height: 100vh;
     display: flex;
@@ -14,21 +16,39 @@ body {
 }
 
 .quotes-display {
-    min-width: 30rem;
+    min-width: 25rem;
+    max-width: 30rem;
     min-height: 10rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 1rem;
     background-color: $secondary-color;
+    display: flex;
+    flex-direction: column;
 
     &__quote {
+        text-align: center;
+        font-size: 1.7rem;
 
     }
 
     &__author {
-
+        text-align: end;
     }
 
-    &__ {
-
+    &__tweet {
+        display: contents;
     }
+
+    &__btn {
+        background-color: $secondary-color;
+        margin: 1rem 0;
+        width: max-content;
+        cursor: pointer;
+        border: 1px solid $cta-color;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        justify-content: flex-end;
+    }
+
+
 }
