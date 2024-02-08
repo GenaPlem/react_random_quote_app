@@ -19,36 +19,50 @@ body {
     min-width: 25rem;
     max-width: 30rem;
     min-height: 10rem;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     padding: 1rem;
     background-color: $secondary-color;
-    display: flex;
-    flex-direction: column;
 
     &__quote {
         text-align: center;
         font-size: 1.7rem;
-
+        margin: 0.5rem 0;
     }
 
     &__author {
         text-align: end;
     }
 
-    &__tweet {
-        display: contents;
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    &__btn {
+    &__tweet {
+        text-decoration: none;
+        width: 36px;
+        height: 36px;
+    }
+
+    &__btn, &__tweet {
         background-color: $secondary-color;
-        margin: 1rem 0;
-        width: max-content;
         cursor: pointer;
         border: 1px solid $cta-color;
-        border-radius: 0.5rem;
+        border-radius: 0.3rem;
         padding: 0.5rem;
-        justify-content: flex-end;
-    }
+        font-size: 0.97rem;
+        transition: all 0.3s;
 
+        &:hover {
+            background-color: $cta-color;
+            color: $secondary-color;
+
+
+            & svg path {
+                fill: $secondary-color;
+            }
+        }
+    }
 
 }
