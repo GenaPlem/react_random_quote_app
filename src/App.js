@@ -7,8 +7,10 @@ function App() {
     return (
         <div className="quotes-display" id="quote-box">
             <QuoteDisplay/>
-            <QuoteTweet/>
-            <QuoteButton/>
+            <div className="quotes-display__actions">
+                <QuoteTweet/>
+                <QuoteButton/>
+            </div>
         </div>
     );
 }
