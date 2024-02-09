@@ -11,19 +11,23 @@ class App extends Component {
         super(props);
         this.state = {
             quote: '',
-            author: ''
+            author: '',
+            isLoading: false
         }
         this.fetchQuote = this.fetchQuote.bind(this);
     }
 
     fetchQuote() {
+        this.setState({isLoading: true})
+
         fetch('https://api.breakingbadquotes.xyz/v1/quotes')
             .then(data => data.json())
             .then(data => {
                 if (data && data.length > 0) {
                     this.setState({
                             quote: data[0].quote,
-                            author: data[0].author
+                            author: data[0].author,
+                            isLoading: false
                         }
                     )
                 }
@@ -37,7 +41,7 @@ class App extends Component {
     render() {
         return (
             <div className="quotes-display" id="quote-box">
-                <QuoteDisplay quote={this.state.quote} author={this.state.author}/>
+                <QuoteDisplay quote={this.state.quote} author={this.state.author} isLoading={this.state.isLoading}/>
                 <div className="quotes-display__actions">
                     <QuoteTweet/>
                     <QuoteButton fetchQuote={this.fetchQuote}/>
