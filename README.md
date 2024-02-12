@@ -1,9 +1,8 @@
 # Random Quote Machine (FreeCodeCamp React project)
 
-This is a learning project from [
+This project serves as a hands-on exercise to refresh my React skills, from [
 FreeCodeCamp](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-random-quote-machine)
-that
-I've built to remember React and I will not deploy it
+It is a part of my continuous learning journey, and I have chosen not to deploy it.
 
 ## Getting Started with Create React App
 
