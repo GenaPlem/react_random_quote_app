@@ -4,51 +4,44 @@ import {QuoteDisplay} from "./components/QuoteDisplay";
 import {QuoteButton} from "./components/QuoteButton";
 import {QuoteTweet} from "./components/QuoteTweet";
 
-import {Component} from "react";
+import {useEffect, useState} from "react";
+import {fetchQuote} from "./utils/fetchQuote";
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            quote: '',
-            author: '',
-            isLoading: false
+const App = () => {
+    const [quote, setQuote] = useState('');
+    const [author, setAuthor] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const handleFetchQuote = async () => {
+        setLoading(true)
+        setError(null)
+
+        const {error, response} = await fetchQuote()
+
+        if (error) {
+            setError(error.message)
+        } else {
+            setAuthor(response[0].author)
+            setQuote(response[0].quote)
         }
-        this.fetchQuote = this.fetchQuote.bind(this);
+
+        setLoading(false)
     }
 
-    fetchQuote() {
-        this.setState({isLoading: true})
+    useEffect(() => {
+        handleFetchQuote()
+    }, [])
 
-        fetch('https://api.breakingbadquotes.xyz/v1/quotes')
-            .then(data => data.json())
-            .then(data => {
-                if (data && data.length > 0) {
-                    this.setState({
-                            quote: data[0].quote,
-                            author: data[0].author,
-                            isLoading: false
-                        }
-                    )
-                }
-            });
-    }
-
-    componentDidMount() {
-        this.fetchQuote()
-    }
-
-    render() {
-        return (
-            <div className="quotes-display" id="quote-box">
-                <QuoteDisplay quote={this.state.quote} author={this.state.author} isLoading={this.state.isLoading}/>
-                <div className="quotes-display__actions">
-                    <QuoteTweet/>
-                    <QuoteButton fetchQuote={this.fetchQuote}/>
-                </div>
+    return (
+        <div className="quotes-display" id="quote-box">
+            <QuoteDisplay quote={quote} author={author} loading={loading}/>
+            <div className="quotes-display__actions">
+                <QuoteTweet/>
+                <QuoteButton handleFetchQuote={handleFetchQuote}/>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default App;
