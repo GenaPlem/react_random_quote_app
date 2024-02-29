@@ -35,7 +35,7 @@ const App = () => {
 
     return (
         <div className="quotes-display" id="quote-box">
-            <QuoteDisplay quote={quote} author={author} loading={loading}/>
+            <QuoteDisplay quote={quote} author={author} loading={loading} error={error}/>
             <div className="quotes-display__actions">
                 <QuoteTweet/>
                 <QuoteButton handleFetchQuote={handleFetchQuote}/>
